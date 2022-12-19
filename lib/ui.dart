@@ -84,7 +84,7 @@ class Wallet extends StatefulWidget {
 
 class _WalletState extends State<Wallet> {
   int balance = 0;
-  //final _textController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,24 +131,6 @@ class _WalletState extends State<Wallet> {
                 ),
               ),
             ),
-            /*Positioned(
-              top: 165,
-              child: Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: TextField(
-                  controller: _textController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        _textController.clear();
-                      },
-                      icon: const Icon(Icons.clear_rounded),
-                    ),
-                  ),
-                ),
-              ),
-            ),*/
             Positioned(
               top: 250,
               left: 30,
