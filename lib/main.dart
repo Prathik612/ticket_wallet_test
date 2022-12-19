@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:practice/ui.dart';
+import 'package:practice/home_page.dart';
+import 'package:practice/settings.dart';
+import 'package:practice/tickets.dart';
+import 'package:practice/wallet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +35,7 @@ class Start extends StatefulWidget {
 
 class _StartState extends State<Start> {
   int currIndex = 0;
+  List<Widget> pages = const [HomePage(), Tickets(), SettingsPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,40 +69,42 @@ class _StartState extends State<Start> {
           ],
         ),
       ),
-      body: Center(
-        child: currIndex == 1 ?  const SettingsPage() : const HomePage(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedIconTheme: const IconThemeData.fallback(),
-        unselectedIconTheme: const IconThemeData.fallback(),
-        unselectedItemColor: Colors.black45,
-        selectedItemColor: Colors.redAccent,
-        items: const [
-          BottomNavigationBarItem(
+      
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
             label: 'Home',
             icon: Icon(Icons.home),
-            activeIcon: Icon(
-              Icons.home_rounded,
-              //color: Color.fromARGB(255, 225, 34, 34),
+            selectedIcon: Icon(
+              Icons.home,
+              color: Colors.blueGrey,
             ),
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
+            icon: Icon(Icons.airplane_ticket_outlined),
+            label: 'Tickets',
+            selectedIcon: Icon(
+              Icons.airplane_ticket_rounded,
+              color: Colors.blueGrey,
+            ),
+          ),
+          NavigationDestination(
             label: "Settings",
             icon: Icon(Icons.settings),
-            activeIcon: Icon(
+            selectedIcon: Icon(
               Icons.settings,
               color: Colors.blueGrey,
             ),
           ),
         ],
-        currentIndex: currIndex,
-        onTap: (int index) {
+        selectedIndex: currIndex,
+        onDestinationSelected: (int index) {
           setState(() {
             currIndex = index;
           });
         },
       ),
+      body: pages[currIndex],
     );
   }
 }
-
