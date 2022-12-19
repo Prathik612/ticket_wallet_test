@@ -41,20 +41,20 @@ dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "images/code_icon.png"
+  image_path: "assets/images/code_icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "images/code_icon.png"
+    image_path: "assets/images/code_icon.png"
     background_color: "#hexcode"
     theme_color: "#hexcode"
   windows:
     generate: true
-    image_path: "images/code_icon.png"
+    image_path: "assets/images/code_icon.png"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "images/code_icon.png"
+    image_path: "assets/images/code_icon.png"
 
 dev_dependencies:
   flutter_test:
@@ -96,7 +96,10 @@ flutter:
   # example:
   # fonts:
   #   - family: Schyler
-  #     fonts:
+  fonts:
+    - family: Ariel
+      fonts:
+        - asset: assets/fonts/ARLRDBD.TTF
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

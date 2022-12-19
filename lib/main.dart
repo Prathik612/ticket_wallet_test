@@ -19,7 +19,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(appBarTheme: AppBarTheme(color: Colors.pink[900])),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.pink[900],
+        ),
+      ),
       home: const Start(),
       debugShowCheckedModeBanner: false,
     );
@@ -69,31 +73,31 @@ class _StartState extends State<Start> {
           ],
         ),
       ),
-      
       bottomNavigationBar: NavigationBar(
-        destinations: const [
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        destinations: [
           NavigationDestination(
             label: 'Home',
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             selectedIcon: Icon(
               Icons.home,
-              color: Colors.blueGrey,
+              color: Colors.pink[900],
             ),
           ),
           NavigationDestination(
-            icon: Icon(Icons.airplane_ticket_outlined),
+            icon: const Icon(Icons.airplane_ticket_outlined),
             label: 'Tickets',
             selectedIcon: Icon(
               Icons.airplane_ticket_rounded,
-              color: Colors.blueGrey,
+              color: Colors.pink[900],
             ),
           ),
           NavigationDestination(
             label: "Settings",
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             selectedIcon: Icon(
               Icons.settings,
-              color: Colors.blueGrey,
+              color: Colors.pink[900],
             ),
           ),
         ],

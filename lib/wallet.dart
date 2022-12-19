@@ -16,7 +16,7 @@ class _WalletState extends State<Wallet> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Wallet'),
+        title: const Text('Wallet', style: TextStyle(fontFamily: 'Ariel'),),
       ),
       body: Center(
         child: Stack(
@@ -39,7 +39,7 @@ class _WalletState extends State<Wallet> {
                         '\n Balance ',
                         style: TextStyle(
                           fontSize: 20,
-                          fontStyle: FontStyle.italic,
+                          fontFamily: 'Ariel',
                         ),
                       ),
                     ),
@@ -49,7 +49,7 @@ class _WalletState extends State<Wallet> {
                         '₹ $balance',
                         style: const TextStyle(
                           fontSize: 20,
-                          fontStyle: FontStyle.italic,
+                          fontStyle: FontStyle.normal,
                         ),
                       ),
                     ),
@@ -60,7 +60,7 @@ class _WalletState extends State<Wallet> {
             Positioned(
               top: 175,
               left: 48,
-              child: Container(
+              child: SizedBox(
                 width: 320,
                 child: TextField(
                   controller: textval,
