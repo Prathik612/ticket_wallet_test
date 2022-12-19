@@ -9,7 +9,8 @@ class Wallet extends StatefulWidget {
 
 class _WalletState extends State<Wallet> {
   int balance = 0;
-  
+  var textval = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,24 +58,53 @@ class _WalletState extends State<Wallet> {
               ),
             ),
             Positioned(
+              top: 175,
+              left: 48,
+              child: Container(
+                width: 320,
+                child: TextField(
+                  controller: textval,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        textval.clear();
+                      },
+                      icon: const Icon(Icons.clear_rounded),
+                    ),
+                    prefixIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.currency_rupee),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
               top: 250,
-              left: 30,
+              left: 48,
               child: SizedBox(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[800]),
                   onPressed: (() {
                     setState(() {
-                      balance += 500;
+                      String temp = textval.text.toString();
+                      balance += int.parse(temp);
                     });
                   }),
-                  child: const Text('Add 500'),
+                  child: const Text('Deposit'),
                 ),
               ),
             ),
             Positioned(
               top: 250,
-              right: 30,
+              right: 48,
               child: SizedBox(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -82,7 +112,8 @@ class _WalletState extends State<Wallet> {
                   onPressed: (() {
                     setState(
                       () {
-                        if (balance <= 0) {
+                        String temp = textval.text.toString();
+                        if (balance <= 0 || int.parse(temp)>balance) {
                           showDialog<String>(
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
@@ -96,12 +127,13 @@ class _WalletState extends State<Wallet> {
                             ),
                           );
                         } else {
-                          balance -= 500;
+                          String temp = textval.text.toString();
+                          balance -= int.parse(temp);
                         }
                       },
                     );
                   }),
-                  child: const Text('Remove 500'),
+                  child: const Text('Withdraw'),
                 ),
               ),
             ),
