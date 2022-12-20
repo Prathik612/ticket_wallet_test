@@ -8,7 +8,7 @@ class Wallet extends StatefulWidget {
 }
 
 class _WalletState extends State<Wallet> {
-  int balance = 0;
+  static int balance = 0;
   var textval = TextEditingController();
 
   @override
@@ -16,7 +16,10 @@ class _WalletState extends State<Wallet> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Wallet', style: TextStyle(fontFamily: 'Ariel'),),
+        title: const Text(
+          'Wallet',
+          style: TextStyle(fontFamily: 'Ariel'),
+        ),
       ),
       body: Center(
         child: Stack(
@@ -63,6 +66,7 @@ class _WalletState extends State<Wallet> {
               child: SizedBox(
                 width: 320,
                 child: TextField(
+                  keyboardType: TextInputType.number,
                   controller: textval,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -96,6 +100,7 @@ class _WalletState extends State<Wallet> {
                     setState(() {
                       String temp = textval.text.toString();
                       balance += int.parse(temp);
+                      textval.clear();
                     });
                   }),
                   child: const Text('Deposit'),
@@ -113,7 +118,7 @@ class _WalletState extends State<Wallet> {
                     setState(
                       () {
                         String temp = textval.text.toString();
-                        if (balance <= 0 || int.parse(temp)>balance) {
+                        if (balance <= 0 || int.parse(temp) > balance) {
                           showDialog<String>(
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
@@ -129,6 +134,7 @@ class _WalletState extends State<Wallet> {
                         } else {
                           String temp = textval.text.toString();
                           balance -= int.parse(temp);
+                          textval.clear();
                         }
                       },
                     );
