@@ -78,7 +78,7 @@ class _StartState extends State<Start> {
         destinations: [
           NavigationDestination(
             label: 'Home',
-            icon: const Icon(Icons.home),
+            icon: const Icon(Icons.home_outlined),
             selectedIcon: Icon(
               Icons.home,
               color: Colors.pink[900],
