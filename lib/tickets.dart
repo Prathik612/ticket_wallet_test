@@ -8,8 +8,8 @@ class Tickets extends StatefulWidget {
 }
 
 class _TicketsState extends State<Tickets> {
-  String to = '', from = '';
-  static const List<String> options = [
+  static String to = '', from = '';
+  static const List<String> options1 = [
     'MANGALURU(IXE)',
     'DOHA(DOH)',
     'BENGALURU(BLR)',
@@ -35,7 +35,7 @@ class _TicketsState extends State<Tickets> {
               if (textEditingValue.text == '') {
                 return const Iterable<String>.empty();
               }
-              return options.where((String opt) {
+              return options1.where((String opt) {
                 return opt.contains(textEditingValue.text.toUpperCase());
               });
             },
@@ -58,8 +58,8 @@ class _TicketsState extends State<Tickets> {
                     icon: const Icon(Icons.clear_rounded),
                   ),
                   prefixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.pin_drop),
+                    onPressed: () {},
+                    icon: const Icon(Icons.pin_drop),
                   ),
                 ),
                 controller: textEditingController,
@@ -67,8 +67,18 @@ class _TicketsState extends State<Tickets> {
               );
             },
           ),
-          const SizedBox(
-            child: Text('\n\n'),
+          SizedBox(
+            child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black
+                ),
+                child: const Icon(Icons.swap_vert_circle_outlined)),
           ),
           const SizedBox(
             child: Text(
@@ -82,7 +92,9 @@ class _TicketsState extends State<Tickets> {
                   textEditingValue.text.toUpperCase() == to) {
                 return const Iterable<String>.empty();
               }
-              return options.where((String opt) {
+              List<String> options2 = List.from(options1);
+              bool res = options2.remove(to);
+              return options2.where((String opt) {
                 return opt.contains(
                   textEditingValue.text.toUpperCase(),
                 );
@@ -107,8 +119,8 @@ class _TicketsState extends State<Tickets> {
                     icon: const Icon(Icons.clear_rounded),
                   ),
                   prefixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.pin_drop),
+                    onPressed: () {},
+                    icon: const Icon(Icons.pin_drop),
                   ),
                 ),
                 controller: textEditingController,
