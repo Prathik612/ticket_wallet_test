@@ -60,15 +60,27 @@ class _StartState extends State<Start> {
         ],
         iconTheme: const IconThemeData(color: Colors.black87),
         centerTitle: true,
-        title: const Text("Practice App"),
-        //backgroundColor: Colors.pink[900],
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/air.png',
+              fit: BoxFit.contain,
+              height: 32,
+            ),
+            Container(
+              child: const Text(" Air Airlines"),
+            )
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
           children: [
             ListTile(
-              title: const Text('Scan QR'),
-              onTap: () {},
+              title: const Text('Help'),
+              onTap: (){
+              },
             )
           ],
         ),

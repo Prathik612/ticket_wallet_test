@@ -67,22 +67,9 @@ class _TicketsState extends State<Tickets> {
               );
             },
           ),
-          SizedBox(
-            child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black
-                ),
-                child: const Icon(Icons.swap_vert_circle_outlined)),
-          ),
           const SizedBox(
             child: Text(
-              ' From: ',
+              ' \nFrom: ',
               textScaleFactor: 1.5,
             ),
           ),
@@ -128,8 +115,26 @@ class _TicketsState extends State<Tickets> {
               );
             },
           ),
+          SizedBox(
+            child: Center(
+              child: ElevatedButton(
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: Colors.grey[800]),
+                onPressed: (() {
+                  setState(() {
+                    genetateTicket(to,from);
+                  });
+                }),
+                child: const Text('Book Ticket'),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+}
+
+void genetateTicket(String to, String from){
+
 }

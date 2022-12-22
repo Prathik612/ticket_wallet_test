@@ -28,7 +28,7 @@ class _WalletState extends State<Wallet> {
               top: 25,
               left: 48,
               child: Container(
-                height: 120,
+                height: 120, 
                 width: 320,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13.5),
